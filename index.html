@@ -14,19 +14,40 @@
 <body>
     <div class="container">
         <div class="Mainprompt">
-            <img class="image" src="images/catflower.jpg"></img>
+            <img class="image" src="images/catflower.jpg">
+
             <h1 class="hh" id="name">Hey beautiful!</h1>
             <p class="pp" id="question">Will you be my Valentine?</p>
+
             <div class="buttons">
                 <button id="no-button" onclick="showMessage('No')">No</button>
-                <button onclick="showMessage('Yes')" id="yesButton">Yes</button>
+                <button id="yesButton" onclick="showMessage('Yes')">Yes</button>
             </div>
+
+            <button id="moreButton" onclick="showLetter()" style="display:none;">
+                Ohh there is more ❤️
+            </button>
+
+            <div id="letter" style="display:none;">
+                <p class="letter-text">
+                    Dear Himanshi ❤️<br><br>
+                    From the moment you came into my life, everything changed. You made ordinary days special and hard days easier.<br><br>
+                    I love your smile, your kindness, and the way you understand me without me saying a word.<br><br>
+                    You’ve brought warmth, laughter, and meaning into my life, and I’m so grateful for you every single day.<br><br>
+                    Thank you for being you. Thank you for choosing me.<br><br>
+                    Forever yours,<br>
+                    Akash ❤️
+                </p>
+            </div>
+
             <div id="youtube-player-container">
                 <div id="youtube-player"></div>
             </div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 
 </html>
+
