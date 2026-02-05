@@ -4,13 +4,14 @@ document.body.appendChild(tag);
 
 var player;
 var isYouTubeReady = false;
+var ytStarted = false;
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player("youtube-player", {
     videoId: "09R8_2nJtjg",
     playerVars: {
       start: 40,
-      autoplay: 1,
+      autoplay: 0,
       mute: 1,
       controls: 0,
       rel: 0
@@ -24,6 +25,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function showMessage(response) {
+
   if (response === "No") {
     const noButton = document.getElementById("no-button");
     const card = document.querySelector(".card");
@@ -34,10 +36,7 @@ function showMessage(response) {
 
     noButton.style.position = "absolute";
 
-    noButton.addEventListener("touchstart", moveButton);
-    noButton.addEventListener("mouseover", moveButton);
-
-    function moveButton() {
+    function moveButtonAndPlayMusic() {
       const cardRect = card.getBoundingClientRect();
       const btnRect = noButton.getBoundingClientRect();
 
@@ -50,14 +49,28 @@ function showMessage(response) {
       noButton.style.left = randomX + "px";
       noButton.style.top = randomY + "px";
 
-      if (isYouTubeReady && player) {
+      if (isYouTubeReady && player && !ytStarted) {
         player.unMute();
         player.playVideo();
+        ytStarted = true;
       }
     }
+
+    // Mobile + Desktop
+    noButton.addEventListener("touchstart", moveButtonAndPlayMusic);
+    noButton.addEventListener("mouseover", moveButtonAndPlayMusic);
   }
 
   if (response === "Yes") {
+    // STOP YOUTUBE CLEANLY
+    if (player) {
+      player.stopVideo();
+      player.destroy();
+    }
+
+    const yt = document.getElementById("youtube-player-container");
+    if (yt) yt.remove();
+
     document.getElementById("name").remove();
     document.getElementById("no-button").remove();
     document.getElementById("yesButton").remove();
@@ -67,19 +80,11 @@ function showMessage(response) {
 
     document.getElementsByClassName("image")[0].src = "images/dance.gif";
 
+    // ✅ THIS AUDIO IS NOW 100% USER-TRIGGERED
+    const cheerAudio = new Audio("./Minions Cheering.mp4");
+    cheerAudio.play();
+
     document.getElementById("moreButton").style.display = "block";
-
-    const audio = document.createElement("audio");
-    audio.src = "./Minions Cheering.mp4";
-    audio.play();
-
-    const yt = document.getElementById("youtube-player-container");
-    if (yt) yt.remove();
-
-    if (player) {
-      player.stopVideo();
-      player.destroy();
-    }
   }
 }
 
