@@ -1,53 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <title>Valentine</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentine</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <div class="container">
-        <div class="Mainprompt">
-            <img class="image" src="images/catflower.jpg">
+  <div class="container">
+    <div class="card">
 
-            <h1 class="hh" id="name">Hey beautiful!</h1>
-            <p class="pp" id="question">Will you be my Valentine?</p>
+      <img class="image" src="images/catflower.jpg" alt="cute" />
 
-            <div class="buttons">
-                <button id="no-button" onclick="showMessage('No')">No</button>
-                <button id="yesButton" onclick="showMessage('Yes')">Yes</button>
-            </div>
+      <h1 class="hh" id="name">Hey beautiful!</h1>
 
-            <button id="moreButton" onclick="showLetter()" style="display:none;">
-                Ohh there is more ❤️
-            </button>
+      <p class="pp" id="question">Will you be my Valentine?</p>
 
-            <div id="letter" style="display:none;">
-                <p class="letter-text">
-                    Dear Himanshi ❤️<br><br>
-                    From the moment you came into my life, everything changed. You made ordinary days special and hard days easier.<br><br>
-                    I love your smile, your kindness, and the way you understand me without me saying a word.<br><br>
-                    You’ve brought warmth, laughter, and meaning into my life, and I’m so grateful for you every single day.<br><br>
-                    Thank you for being you. Thank you for choosing me.<br><br>
-                    Forever yours,<br>
-                    Akash ❤️
-                </p>
-            </div>
+      <div class="buttons">
+        <button id="no-button" onclick="showMessage('No')">No</button>
+        <button id="yesButton" onclick="showMessage('Yes')">Yes</button>
+      </div>
 
-            <div id="youtube-player-container">
-                <div id="youtube-player"></div>
-            </div>
-        </div>
+      <button id="moreButton" onclick="showLetter()">
+        Ohh there is more ❤️
+      </button>
+
+      <div id="letter">
+        <p class="letter-text">
+          Dear Himanshi ❤️<br><br>
+
+          From the moment you came into my life, everything changed. You made ordinary days special and hard days easier.<br><br>
+
+          I love your smile, your kindness, and the way you understand me without me saying a word.<br><br>
+
+          You’ve brought warmth, laughter, and meaning into my life, and I’m so grateful for you every single day.<br><br>
+
+          Thank you for being you. Thank you for choosing me.<br><br>
+
+          Forever yours,<br>
+          Akash ❤️
+        </p>
+      </div>
+
+      <div id="youtube-player-container">
+        <div id="youtube-player"></div>
+      </div>
+
     </div>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
-
